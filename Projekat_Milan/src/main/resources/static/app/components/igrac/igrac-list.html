@@ -1,0 +1,106 @@
+<meta charset="utf-8">
+<div ng-controller="IgracListController as ctrl">
+	<h3>Lista igraca</h3>
+	<table class="table table-hover table-bordered">
+		<thead>
+			<tr class="active">
+				<td>
+					<input class="form-control" id="id" name="id" placeholder="Id" ng-model="ctrl.search.id">
+				</td>
+				<td>
+					<input class="form-control" id="brojRed" name="Broj registracije" placeholder="brojRed" ng-model="ctrl.search.brojRed">
+				</td>
+				<td>
+					<input class="form-control" id="datumRodjenja" name="Datum rodjenja" placeholder="datumRodjenja" ng-model="ctrl.search.datumRodjenja">
+				</td>
+				<td>
+					<input class="form-control" id="ime" name="Ime" placeholder="ime" ng-model="ctrl.search.ime">
+				</td>
+				<td>
+					<input class="form-control" id="prezime" name="Prezime" placeholder="prezime" ng-model="ctrl.search.prezime">
+				</td>
+				<td>
+					<input class="form-control" id="nacionalnostBean" name="Nacionalnost" placeholder="nacionalnostBean" ng-model="ctrl.search.nacionalnostBean">
+				</td>
+				<td>
+					<input class="form-control" id="timBean" name="Tim" placeholder="timBean" ng-model="ctrl.search.timBean">
+				</td>
+			</tr>
+			<tr class="active">
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('id')">
+						Id
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'id'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'id' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'id' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('brojRed')">
+						Broj registracije
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'brojRed'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'brojRed' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'brojRed' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('datumRodjenja')">
+						Datum rodjenja
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'datumRodjenja'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'datumRodjenja' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'datumRodjenja' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('ime')">
+						Ime
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'ime'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'ime' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'ime' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('prezime')">
+						Prezime
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'prezime'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'prezime' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'prezime' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('nacionalnostBean.naziv')">
+						Nacionalnost
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'nacionalnostBean.naziv'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'nacionalnostBean.naziv' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'nacionalnostBean.naziv' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('timBean.naziv')">
+						Tim
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'timBean.naziv'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'timBean.naziv' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'timBean.naziv' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr	class="link" ng-click="ctrl.edit(stavka.id)" ng-repeat="stavka in ctrl.igraci | filter:ctrl.search | orderBy:ctrl.sortDirection+ctrl.sort">
+				<td>{{stavka.id}}</td>
+				<td>{{stavka.brojRed}}</td>
+				<td>{{stavka.datumRodjenja}}</td>
+				<td>{{stavka.ime}}</td>
+				<td>{{stavka.prezime}}</td>
+				<td>{{stavka.nacionalnostBean.naziv}}</td>
+				<td>{{stavka.timBean.naziv}}</td>
+			</tr>
+		</tbody>		
+	</table>
+	<hr>
+	<div>
+		<a class="btn btn-success btn-md" href="#/igrac/add">
+			<span class="glyphicon glyphicon-plus"></span>
+		</a>
+	</div>
+</div>

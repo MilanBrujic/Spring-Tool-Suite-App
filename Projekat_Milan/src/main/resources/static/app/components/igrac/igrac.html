@@ -1,0 +1,61 @@
+<meta charset="utf-8">
+<div ng-controller="IgracController as ctrl">
+	<h3>{{ctrl.title}}</h3>
+	<hr>
+	<form name="frm" class="form-horizontal">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="id">Id</label>
+			<div class="col-sm-6 col-md-4">
+				<input type="number" required ng-model="ctrl.igrac.id" id="id" ng-disabled="ctrl.edit()" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+		"src/main/resources/static/app/components/igrac/igrac.html"	<label class="control-label col-sm-2" for="brojRed">Broj registracije</label>
+			<div class="col-sm-6 col-md-4">
+				<input type="text" required ng-model="ctrl.igrac.brojRed" id="brojRed" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="datumRodjenja">Datum rodjenja</label>
+			<div class="col-sm-6 col-md-4">
+				<input type="text" required ng-model="ctrl.igrac.datumRodjenja" id="datumRodjenja" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="ime">Ime</label>
+			<div class="col-sm-6 col-md-4">
+				<input type="text" required ng-model="ctrl.igrac.ime" id="ime" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="prezime">Prezime</label>
+			<div class="col-sm-6 col-md-4">
+				<input type="text" required ng-model="ctrl.igrac.prezime" id="prezime" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="nacionalnostBean">Nacionalnost</label>
+			<div class="col-sm-6 col-md-4">
+				<input type="text" required ng-model="ctrl.igrac.nacionalnostBean" id="nacionalnostBean" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="timBean">Tim</label>
+			<div class="col-sm-6 col-md-4">
+				<input type="text" required ng-model="ctrl.igrac.timBean" id="timBean" class="form-control">
+			</div>
+		</div>
+		<div class="col-sm-offset-2">
+			<button class="btn btn-primary" type="button" ng-click="ctrl.save()" ng-disabled="frm.$invalid">
+				Potvrdi
+			</button>
+			<button class="btn btn-danger" type="button" ng-click="ctrl.openConfirm('delete')" ng-show="ctrl.edit()" >
+				Obriši
+			</button>
+			<a class="btn btn-default" href="#/igrac">
+				<i class="fa fa-chevron-left"></i>
+				Nazad
+			</a>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,82 @@
+<meta charset="utf-8">
+<ul class="nav nav-side-bar nav-sidebar-padding sideBar" 
+			ng-controller="SideBarController as sbc">
+	<div class="panel-group" id="root">
+		<!-- nabavka -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<li>
+						<a data-toggle="collapse" data-parent="#root" 
+							href="#Biraj">
+							Biraj
+						</a>
+					</li>
+				</h4>
+			</div>
+			<div id="Biraj" class="panel-collapse collapse">
+				<ul class="list-group">
+					<li ng-class="{activeItem:sbc.isActive('igrac')}">
+						<a class="list-group-item" ng-href="#/igrac">
+							<span>
+								Igraci
+							</span>
+						</a>
+					</li>
+					<li ng-class="{activeItem:sbc.isActive('tim')}">
+						<a class="list-group-item" ng-href="#/tim">
+							<span>
+								Timovi
+							</span>
+						</a>
+					</li>
+					<li ng-class="{activeItem:sbc.isActive('liga')}">
+						<a class="list-group-item" ng-href="#/liga">
+							<span>
+								Lige
+							</span>
+						</a>
+					</li>
+					<li ng-class="{activeItem:sbc.isActive('nacionalnost')}">
+						<a class="list-group-item" ng-href="#/nacionalnost">
+							<span>
+								Nacionalnost
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Aplikacija -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<li>
+						<a data-toggle="collapse" data-parent="#root" 
+							href="#About">
+							Aplikacija
+						</a>
+					</li>
+				</h4>
+			</div>
+			<div id="About" class="panel-collapse collapse">
+				<ul class="list-group">
+					<li ng-class="{activeItem:sbc.isActive('about')}">
+						<a class="list-group-item" ng-href="#/about">
+							<span>
+								O nama
+							</span>
+						</a>
+					</li>
+					<li ng-class="{activeItem:sbc.isActive('help')}">
+						<a class="list-group-item" ng-href="#/help">
+							<span>
+								Pomoć
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>	
+</ul>

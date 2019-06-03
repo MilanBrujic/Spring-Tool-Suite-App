@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Razvoj programskih proizvoda</title>
+<link href="./assets/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/css/font-awesome.css" rel="stylesheet">
+<link href="./assets/css/company.css" rel="stylesheet">
+<link href="./assets/css/ngDialog.css" rel="stylesheet">
+<link href="./assets/css/ngDialog-theme-default.css" rel="stylesheet">
+<link href="./assets/css/ngDialog-theme-plain.css" rel="stylesheet">
+<link href="./assets/css/datepicker.css" rel="stylesheet">
+</head>
+<body ng-app="com.example.demoApp">
+
+	<div class="container-fluid">
+		<div class="row" ng-include="'app/components/core/header.html'"></div>
+		<div class="row">
+			<div class="col-sm-2" ng-include="'app/components/core/sideBar.html'"></div>
+			<div class="col-sm-10" ui-view></div>
+		</div>	
+	</div>
+	
+	<script src="./assets/js/jquery-1.11.3.min/jquery-1.11.3.min.js"></script>
+	<script src="./assets/js/bootstrap.min/bootstrap.min.js"></script>
+	<script src="./assets/js/angular/angular.js"></script>
+	<script src="./assets/js/angular-resource/angular-resource.js"></script>
+	<script	src="./assets/js/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="./assets/js/ngDialog.js" style="background-color: Black;"></script>
+	<script src="./assets/js/bootstrap-datepicker.js"></script>
+	<script src="./assets/js/ui-bootstrap-tpls-1.3.2.min.js"></script>
+	<script src="./assets/js/angular-locale_sr-latn-rs.js"></script>
+	
+	<script src="./app/app.modules.js"></script>
+	
+	<script src="./app/components/core/core.module.js"></script>
+	<script src="./app/components/core/sideBar.controller.js"></script>
+	<script src="./app/components/core/core.route.js"></script>
+	
+	<script src="./app/components/igrac/igrac.module.js"></script>
+	<script src="./app/components/igrac/IgracListController.js"></script>
+	<script src="./app/components/igrac/IgracController.js"></script>
+	<script src="./app/components/igrac/igrac.route.js"></script>
+	<script src="./app/components/igrac/igrac.service.js"></script>
+	
+	<script src="./app/components/liga/liga.module.js"></script>
+	<script src="./app/components/liga/LigaListController.js"></script>
+	<script src="./app/components/liga/LigaController.js"></script>
+	<script src="./app/components/liga/liga.route.js"></script>
+	<script src="./app/components/liga/liga.service.js"></script>
+
+	<script src="./app/components/nacionalnost/nacionalnost.module.js"></script>
+	<script src="./app/components/nacionalnost/NacionalnostListController.js"></script>
+	<script src="./app/components/nacionalnost/NacionalnostController.js"></script>
+	<script src="./app/components/nacionalnost/nacionalnost.route.js"></script>
+	<script src="./app/components/nacionalnost/nacionalnost.service.js"></script>
+
+	<script src="./app/components/tim/tim.module.js"></script>
+	<script src="./app/components/tim/TimListController.js"></script>
+	<script src="./app/components/tim/TimController.js"></script>
+	<script src="./app/components/tim/tim.route.js"></script>
+	<script src="./app/components/tim/tim.service.js"></script>
+	
+	<script type="text/ng-template" id="modalDialogId">
+		<div class="ngdialog-message">
+			<p>Da li ste sigurni da želite da obrišete slog?</p>
+		</div>
+		<div class="ngdialog-buttons">
+			<button type="button" class="ngdialog-button ngdialog-button-primary" 
+			ng-click="confirm(confirmValue)">DA</button>
+			<button type="button" class="ngdialog-button ngdialog-button-secondary" 
+			ng-click="closeThisDialog('button')">NE</button>
+		</div>
+	</script>
+	<script type="text/ng-template" id="modalDialogDelete">
+		<div class="ngdialog-message">
+			<p>Nije moguće obrisati slog, postoje povezani podaci!</p>
+		</div>
+		<div class="ngdialog-buttons">
+			<button type="button" class="btn btn-danger" 
+			ng-click="confirm(confirmValue)">OK</button>
+		</div>
+	</script>
+</body>
+</html>

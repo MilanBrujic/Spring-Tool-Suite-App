@@ -1,0 +1,83 @@
+<meta charset="utf-8">
+<div ng-controller="TimListController as ctrl">
+	<h3>Lista timova</h3>
+	<table class="table table-hover table-bordered">
+		<thead>
+			<tr class="active">
+				<td>
+					<input class="form-control" id="id" name="id" placeholder="Id" ng-model="ctrl.search.id">
+				</td>
+				<td>
+					<input class="form-control" id="naziv" name="naziv" placeholder="naziv" ng-model="ctrl.search.naziv">
+				</td>
+				<td>
+					<input class="form-control" id="osnovan" name="osnovan" placeholder="osnovan" ng-model="ctrl.search.osnovan">
+				</td>
+				<td>
+					<input class="form-control" id="sediste" name="sediste" placeholder="sediste" ng-model="ctrl.search.sediste">
+				</td>	
+				<td>
+					<input class="form-control" id="ligaBean" name="liga" placeholder="ligaBean" ng-model="ctrl.search.ligaBean">
+				</td>		
+			</tr>
+			<tr class="active">
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('id')">
+						Id
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'id'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'id' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'id' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('naziv')">
+						Naziv
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'naziv'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'naziv' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'naziv' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('osnovan')">
+						Osnovan
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'osnovan'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'osnovan' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'osnovan' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('sediste')">
+						Sediste
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'sediste'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'sediste' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'sediste' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('ligaBean.naziv')">
+						Liga
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'ligaBean.naziv'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'ligaBean.naziv' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'ligaBean.naziv' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				
+			
+		</thead>
+		<tbody>
+			<tr	class="link" ng-click="ctrl.edit(stavka.id)" ng-repeat="stavka in ctrl.timovi | filter:ctrl.search | orderBy:ctrl.sortDirection+ctrl.sort">
+				<td>{{stavka.id}}</td>
+				<td>{{stavka.naziv}}</td>
+				<td>{{stavka.osnovan}}</td>
+				<td>{{stavka.sediste}}</td>
+				<td>{{stavka.ligaBean.naziv}}</td>
+				
+			</tr>
+		</tbody>		
+	</table>
+	<hr>
+	<div>
+		<a class="btn btn-success btn-md" href="#/tim/add">
+			<span class="glyphicon glyphicon-plus"></span>
+		</a>
+	</div>

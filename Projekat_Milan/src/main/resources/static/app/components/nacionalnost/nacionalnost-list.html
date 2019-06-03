@@ -1,0 +1,58 @@
+<meta charset="utf-8">
+<div ng-controller="NacionalnostListController as ctrl">
+	<h3>Lista nacionalnosti</h3>
+	<table class="table table-hover table-bordered">
+		<thead>
+			<tr class="active">
+				<td>
+					<input class="form-control" id="id" name="id" placeholder="Id" ng-model="ctrl.search.id">
+				</td>
+				<td>
+					<input class="form-control" id="naziv" name="naziv" placeholder="naziv" ng-model="ctrl.search.naziv">
+				</td>
+				<td>
+					<input class="form-control" id="skracenica" name="skracenica" placeholder="skracenica" ng-model="ctrl.search.skracenica">
+				</td>		
+			</tr>
+			<tr class="active">
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('id')">
+						Id
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'id'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'id' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'id' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('naziv')">
+						Naziv
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'naziv'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'naziv' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'naziv' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				<th>
+					<a class="link" ng-href ng-click="ctrl.tableChanged('skracenica')">
+						Skracenica
+						<i class="fa fa-sort disabled" ng-hide="ctrl.sort == 'skracenica'"></i>
+						<i class="fa fa-sort-desc" ng-show="ctrl.sort == 'skracenica' && ctrl.sortDirection == '-'"></i>
+						<i class="fa fa-sort-asc" ng-show="ctrl.sort == 'skracenica' && ctrl.sortDirection == '+'"></i>
+					</a>
+				</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr	class="link" ng-click="ctrl.edit(stavka.id)" ng-repeat="stavka in ctrl.nacionalnosti | filter:ctrl.search | orderBy:ctrl.sortDirection+ctrl.sort">
+				<td>{{stavka.id}}</td>
+				<td>{{stavka.naziv}}</td>
+				<td>{{stavka.skracenica}}</td>
+			</tr>
+		</tbody>		
+	</table>
+	<hr>
+	<div>
+		<a class="btn btn-success btn-md" href="#/nacionalnost/add">
+			<span class="glyphicon glyphicon-plus"></span>
+		</a>
+	</div>
